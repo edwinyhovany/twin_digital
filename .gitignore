@@ -23,10 +23,6 @@ __pycache__/
 # Logs
 logs/
 
-# Docker artefacts
-Dockerfile
-docker-compose.yml
-requirements.txt
 
 # Docker Config
 /docker

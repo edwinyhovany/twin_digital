@@ -1,0 +1,16 @@
+# Core dependencies for Twin Digital project
+pandas
+numpy
+pyarrow
+scikit-learn
+xgboost
+lightgbm
+matplotlib
+plotly
+shap
+mlflow
+joblib
+scipy
+duckdb
+pyyaml
+jupyterlab

@@ -1,0 +1,61 @@
+# docker-compose.yml – Twin Digital Analytic Twin
+# -------------------------------------------------
+# This composition separates:
+#   • `app` – the Python environment (JupyterLab + MLflow) built from the Dockerfile.
+#   • `data` – a lightweight container that only exposes the Parquet data files.
+# Both containers share a named volume (`mlruns`) for MLflow tracking and a bind‑mount
+# for the source code (`./` → /app). The `data` service keeps the data isolated
+# from the code container, respecting the project's “code vs. .parquet” separation.
+
+version: "3.9"
+
+services:
+  # -------------------------------------------------
+  # Application container: JupyterLab + MLflow
+  # -------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: twin_digital_app
+    ports:
+      - "8888:8888"   # JupyterLab
+      - "5000:5000"   # MLflow UI
+    volumes:
+      # Mount the whole project (code, notebooks, etc.) into /app
+      - ./:/app:cached
+      # Persist MLflow runs across restarts
+      - mlruns:/app/mlruns
+    environment:
+      # Jupyter configuration (token can be overridden at runtime)
+      - JUPYTER_TOKEN=devtoken
+      # MLflow tracking URI (stores runs inside the mlruns volume)
+      - MLFLOW_TRACKING_URI=file:///app/mlruns
+    command: >
+      bash -c "
+        # Start JupyterLab
+        jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --ServerApp.token=$${JUPYTER_TOKEN} &
+        # Start MLflow tracking server
+        mlflow server \
+          --backend-store-uri $${MLFLOW_TRACKING_URI} \
+          --default-artifact-root $${MLFLOW_TRACKING_URI} \
+          --host 0.0.0.0 \
+          --port 5000
+      "
+
+  # -------------------------------------------------
+  # Data container – only exposes the Parquet files.
+  # -------------------------------------------------
+  data:
+    image: alpine:latest
+    container_name: twin_digital_data
+    restart: unless-stopped
+    # Keep the container alive (useful for `docker exec` or for linking)
+    command: ["sh", "-c", "while true; do sleep 3600; done"]
+    volumes:
+      # Bind‑mount the host data folder (contains .parquet files) into /data
+      - ./data:/data:ro   # read‑only – protects raw data from accidental writes
+
+volumes:
+  # Persistent storage for MLflow runs
+  mlruns:
