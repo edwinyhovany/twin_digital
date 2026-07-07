@@ -1,8 +1,18 @@
-# Readme.md
-
 # Proyecto de Tesis
-## Gemelo Digital Analítico para la Estimación Prospectiva de Pagos en Pacientes con Diabetes Mellitus Tipo 2 en EPS Colombianas
 
+## 🏥 Gemelo Digital Analítico para la Estimación Prospectiva de Pagos en Pacientes con Diabetes Mellitus Tipo 2
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Jupyter](https://img.shields.io/badge/JupyterLab-Lab-orange)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
+![MLflow](https://img.shields.io/badge/MLflow-Tracking-0194E2)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-F7931E)
+![XGBoost](https://img.shields.io/badge/XGBoost-Regression-green)
+![Plotly](https://img.shields.io/badge/Plotly-Dashboard-3F4F75)
+![Arquitectura](https://img.shields.io/badge/Arquitectura-Analytical_Digital_Twin-blueviolet)
+![Estado](https://img.shields.io/badge/Estado-En_Desarrollo-yellow)
+![Licencia](https://img.shields.io/badge/Licencia-Académico-lightgrey)
 ---
 
 # Objetivo General
@@ -14,8 +24,25 @@ El proyecto NO busca construir un gemelo digital fisiológico.
 El proyecto corresponde a un Gemelo Digital Analítico Poblacional.
 
 ---
+# Fases Proyecto
 
-# Estado actual
+		
+Fase 1	- Investigación y diseño metodológico
+
+Fase 2	- Preparación del dataset
+
+Fase 3	- Clustering y Machine Learning
+
+Fase 4	- Gemelo Digital
+
+Fase 5	- Simulación
+
+Fase 6	- Dashboard
+
+Fase 7	- Validación
+
+
+## Estado actual
 
 Actualmente el proyecto se encuentra entre la Fase 2 y Fase 3 de la metodología.
 
@@ -86,83 +113,6 @@ Dashboard
 ```
 
 ---
-
-# Datos disponibles
-
-Actualmente existen los siguientes archivos.
-
-```
-COSTOS_PAGOS_DIABETES_2022.parquet
-
-COSTOS_PAGOS_DIABETES_2023.parquet
-
-COSTOS_PAGOS_DIABETES_2024.parquet
-
-COSTOS_PAGOS_DIABETES_2025.parquet
-
-COSTOS_PAGOS_DIABETES_2026.parquet
-
-Pacientes_Con_Diabetes.parquet
-
-Pacientes_Con_Diabetes_Limpia.parquet
-
-Pacientes_Con_Diabetes_en_Ecosistema_Bienestar.parquet
-
-Diccionario_base_Pagos.xlsx
-```
-
-Peso aproximado:
-
-650 MB
-
-Formato:
-
-Apache Parquet
-
----
-
-# Tecnología
-
-Todo el proyecto será desarrollado en Python 3.11.
-
-Nunca utilizar R.
-
----
-
-# Librerías principales
-
-pandas
-
-numpy
-
-pyarrow
-
-scikit-learn
-
-xgboost
-
-lightgbm
-
-matplotlib
-
-plotly
-
-shap
-
-mlflow
-
-joblib
-
-scipy
-
-duckdb
-
-pyyaml
-
-jupyterlab
-
----
-
 # Arquitectura del código
 
 ```
@@ -267,11 +217,104 @@ diabetes-digital-twin/
 
 ---
 
+# Datos disponibles
+
+Actualmente existen los siguientes archivos.
+
+```
+COSTOS_PAGOS_DIABETES_2022.parquet
+
+COSTOS_PAGOS_DIABETES_2023.parquet
+
+COSTOS_PAGOS_DIABETES_2024.parquet
+
+COSTOS_PAGOS_DIABETES_2025.parquet
+
+COSTOS_PAGOS_DIABETES_2026.parquet
+
+Pacientes_Con_Diabetes.parquet
+
+Pacientes_Con_Diabetes_Limpia.parquet
+
+Pacientes_Con_Diabetes_en_Ecosistema_Bienestar.parquet
+
+Diccionario_base_Pagos.xlsx
+```
+
+### Peso aproximado:
+
+650 MB
+
+Formato:
+
+Apache Parquet
+
+---
+
+## 🚀 Stack Tecnológico
+
+### Ciencia de Datos
+
+- Python 3.11
+- Pandas
+- NumPy
+- SciPy
+
+### Machine Learning
+
+- Scikit-Learn
+- XGBoost
+- LightGBM
+- SHAP
+
+### Visualización
+
+- Plotly
+- Matplotlib
+- Power BI
+
+### Persistencia
+
+- Apache Parquet
+- PostgreSQL
+
+### Experimentación
+
+- JupyterLab
+- MLflow
+
+### Infraestructura
+
+- Docker
+- Docker Compose
+- GitHub
+
+# Librerías principales
+
+pandas
+numpy
+pyarrow
+scikit-learn
+xgboost
+lightgbm
+matplotlib
+plotly
+shap
+mlflow
+joblib
+scipy
+duckdb
+pyyaml
+jupyterlab
+
+---
+
+
 # Git
 
 Todo el código será versionado en GitHub.
 
-NO subir:
+Excluyendo:
 
 ```
 *.parquet
@@ -284,174 +327,86 @@ data/
 
 outputs/
 
-.ipynb_checkpoints/
 ```
-
-Utilizar .gitignore.
-
----
-
-# Docker
-
-Todo debe ejecutarse dentro de Docker.
-
-No asumir instalaciones locales.
-
-Se utilizará Docker Compose.
-
-Servicios:
-
-JupyterLab
-
-MLFlow
-
-MinIO (opcional)
-
-PostgreSQL (si posteriormente se requiere)
-
----
-
-# Docker Compose esperado
-
-Servicios:
-
-- notebook
-
-- mlflow
-
-- postgres (opcional)
-
-Red interna:
-
-digital-twin-network
-
-Persistencia mediante volumes.
-
----
-
-# Entorno
-
-Ubuntu 24.04
-
-Python 3.11
-
-Docker
-
-Docker Compose
-
-Git
-
-GitHub
-
----
-
-# Flujo de trabajo
-
-Siempre seguir el flujo:
-
-```
-git pull
-
-crear rama feature
-
-desarrollar
-
-commit
-
-push
-
-pull request
-```
-
-Nunca trabajar sobre main.
-
----
 
 # Machine Learning
 
-Problema:
+Problema: Regresión.
 
-Regresión.
-
-Variable objetivo:
-
-Pago observado.
+Variable objetivo: Pago observado.
 
 Modelos candidatos:
 
-Linear Regression
+- Linear Regression
 
-Random Forest
+- Random Forest
 
-Gradient Boosting
+- Gradient Boosting
 
-XGBoost
+- XGBoost
 
-HistGradientBoosting
+- HistGradientBoosting
 
-Evaluar:
+Se Evalua con:
 
-MAE
+- MAE
 
-RMSE
+- RMSE
 
-SMAPE
+- SMAPE
 
-Seleccionar mejor modelo.
-
-Registrar experimentos mediante MLFlow.
+Registro de experimentos mediante MLFlow.
 
 ---
 
 # Clustering
 
-Evaluar:
+Se Evalua con:
 
-KMeans
+- KMeans
 
-Hierarchical Clustering
+- Hierarchical Clustering
 
-DBSCAN (opcional)
+Se Evalua con:
 
-Evaluar con:
+- Silhouette
 
-Silhouette
+- Davies-Bouldin
 
-Davies-Bouldin
+- Calinski-Harabasz
 
-Calinski-Harabasz
-
-Generar perfil de clusters.
+- Generar perfil de clusters.
 
 ---
 
 # Validación
 
-Entrenamiento
+## Entrenamiento
 
 2022
 
 2023
 
-Validación
+## Validación
 
 2024
 
 2025
 
-2026 podrá utilizarse para pruebas futuras o escenarios adicionales.
+2026
 
-No mezclar entrenamiento con validación.
 
 ---
 
-# Gemelo Digital
+# Restricciones de Gemelo Digital
 
-NO construir simulaciones fisiológicas.
+NO se construyen simulaciones fisiológicas.
 
-NO utilizar modelos mecanísticos.
+NO utiliza modelos mecanísticos.
 
 El Gemelo Digital será Analítico.
+
+# Alcance de Gemelo Digital
 
 Debe integrar:
 
@@ -477,19 +432,19 @@ Pago esperado
 
 # Escenarios
 
-Base
+- Base
 
-Mayor seguimiento ambulatorio
+- Mayor seguimiento ambulatorio
 
-Mayor participación en programas preventivos
+- Mayor participación en programas preventivos
 
-Mayor continuidad farmacológica
+- Mayor continuidad farmacológica
 
-Escenario combinado
+- Escenario combinado
 
-Los escenarios modifican variables de entrada.
+- Los escenarios modifican variables de entrada.
 
-Nunca modificar directamente la predicción.
+- Nunca modificar directamente la predicción.
 
 ---
 
@@ -501,114 +456,116 @@ Posteriormente Power BI.
 
 Debe mostrar:
 
-Clusters
+- Clusters
 
-Distribución de pagos
+- Distribución de pagos
 
-Predicción
+- Predicción
 
-Comparación escenarios
+- Comparación escenarios
 
-Indicadores
+- Indicadores
 
-KPIs
-
----
-
-# Principios
-
-Todo el código debe ser:
-
-Modular
-
-Tipado
-
-Documentado
-
-Reutilizable
-
-PEP8
-
-Con logging
-
-Con manejo de errores
-
-Sin duplicación
+- KPIs
 
 ---
 
-# Convención
+# Principios Tecnicos
 
-Todos los notebooks deberán posteriormente convertirse en scripts dentro de src.
+Todo el código cumple con estandares de calidad de codificacion y lineamientos tecnicos como :
 
-Los notebooks solo sirven para experimentación.
+- Modular
 
-La lógica de negocio siempre debe vivir en src/.
+- Tipado
 
----
+- Documentado
 
-# Objetivo del agente
+- Reutilizable
 
-Cada vez que se solicite desarrollar una funcionalidad:
+- Con logging
 
-1.
+- Con manejo de errores
 
-Revisar primero la arquitectura.
-
-2.
-
-Mantener separación entre notebooks y src.
-
-3.
-
-No generar código duplicado.
-
-4.
-
-Crear funciones reutilizables.
-
-5.
-
-Documentar con docstrings.
-
-6.
-
-Agregar typing.
-
-7.
-
-Agregar comentarios únicamente cuando aporten valor.
-
-8.
-
-Mantener compatibilidad con Docker.
-
-9.
-
-No asumir rutas absolutas.
-
-10.
-
-Todas las rutas deben obtenerse mediante pathlib.
+- Sin duplicación
 
 ---
 
-# Prioridad inmediata
+### 📦 Instalación
+## Instalar Docker
+### Windows
+```bash
+https://www.docker.com/products/docker-desktop/
+```
+### Linux
+```bash
+sudo apt update
+sudo apt install docker.io docker-compose-plugin
+```
 
-Actualmente desarrollar:
+### Clonar & Instalar
+```bash
+git clone https://github.com/usuario/diabetes-digital-twin.git
 
-✔ Preparación de datos
+cd diabetes-digital-twin
+```
 
-✔ Calidad
+### Variables de Entorno
 
-✔ Ingeniería de variables
+.env :
+```
+PYTHON_ENV=development
 
-✔ Clustering
+POSTGRES_DB=diabetes
 
-✔ Modelado Predictivo
+POSTGRES_USER=postgres
 
-No comenzar todavía Dashboard ni Simulación avanzada hasta terminar la validación del modelo.
+POSTGRES_PASSWORD=postgres
 
+MLFLOW_TRACKING_URI=http://mlflow:5000
+
+DATA_PATH=/workspace/data
+
+```
+
+### 🐳 Levantar Infraestructura
+
+## Construir contenedores
+
+```
+docker-compose build
+```
+
+## Levantar contenedores
+
+```
+docker-compose up -d
+```
+## Levantar contenedores
+
+Jupyter disponible en:
+```
+http://localhost:8888
+```
+MLflow disponible en:
+```
+http://localhost:5000
+```
 ---
 
-Fin del contexto.
+## 👨‍💻 Authors
+
+**Julie Alejandra Barragan**
+- GitHub:  [@juliebarragan-netizen]
+
+**Edwin Yhovany Garzon**
+- GitHub: [@edwinyhovany]
+
+**Jeferson Torrado**
+- GitHub: [@JefersonTB]
+---
+
+## 📧 Contact
+
+For questions or collaboration: edwingarzon@usantoto.edu.co
+
+---
